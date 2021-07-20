@@ -38,6 +38,22 @@
             >Invalid Credentials</mat-error
           >
         </mat-form-field>
+        <mat-form-field class="country-code">
+          <input
+            required
+            matInput
+            formControlName="inputCountryCode"
+            autocomplete="off"
+            placeholder="Country Code"
+          />
+          <mat-error *ngIf="f.inputCountryCode.errors?.required"
+            >Country Code is required</mat-error
+          >
+          <mat-error *ngIf="f.inputCountryCode.errors?.pattern"
+            >Country code must be number only and prefix with +. e.g:
+            +91</mat-error
+          >
+        </mat-form-field>
         <mat-card-actions>
           <div class="button-flex-container">
             <button mat-raised-button color="primary">SIGN IN</button>
@@ -47,9 +63,7 @@
                 >Sign up here</a
               ></span
             >
-            <a routerLink="/register" routerLinkActive="active"
-              >Forgot Password?</a
-            >
+            <a routerLink="/#" routerLinkActive="active">Forgot Password?</a>
           </div>
         </mat-card-actions>
       </form>

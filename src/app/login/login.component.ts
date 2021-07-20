@@ -37,6 +37,10 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       inputUserName: ['', [Validators.required]],
       inputPassword: ['', [Validators.required]],
+      inputCountryCode: [
+        '',
+        [Validators.required, Validators.pattern('^[+][0-9]*$')],
+      ],
     });
   }
 
@@ -51,7 +55,11 @@ export class LoginComponent implements OnInit {
 
   makeLoginCall(): void {
     this.authenticationService
-      .login(this.f.inputUserName.value, this.f.inputPassword.value, '+91')
+      .login(
+        this.f.inputUserName.value,
+        this.f.inputPassword.value,
+        this.f.inputCountryCode.value
+      )
       .pipe(first())
       .subscribe(
         (user) => {
