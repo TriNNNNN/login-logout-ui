@@ -1,0 +1,36 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+#container {
+  display: flex; /* establish flex container */
+  flex-direction: column; /* make main axis vertical */
+  align-items: center; /* center items horizontally, in this case */
+  height: 100%;
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.box {
+  width: 80%;
+  text-align: center; /* will center text in <p>, which is not a flex item */
+  border: 1px solid red;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 5px;
+  text-align: left;
+}
+
+.mat-spinner {
+  position: relative;
+  margin-left: 50%;
+  margin-right: 50%;
+}

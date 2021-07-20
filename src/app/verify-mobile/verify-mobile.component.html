@@ -1,0 +1,49 @@
+<h1 mat-dialog-title>Verify your mobile number</h1>
+<div mat-dialog-content>
+  <form [formGroup]="verifyMobileForm">
+    <div class="row">
+      <mat-form-field class="fields-base">
+        <input
+          matInput
+          required
+          autocomplete="off"
+          formControlName="inputMobileNo"
+          placeholder="Mobile Number"
+        />
+        <mat-error *ngIf="f.inputMobileNo.errors?.required"
+          >Mobile No. is required</mat-error
+        >
+        <mat-error *ngIf="f.inputMobileNo.errors?.pattern"
+          >Mobile no. must contains number only</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="fields-base">
+        <input
+          matInput
+          required
+          autocomplete="off"
+          formControlName="inputVerificationCode"
+          placeholder="Verification Code e.g: 123456"
+        />
+        <mat-error *ngIf="f.inputVerificationCode.errors?.required"
+          >Verification code is required</mat-error
+        >
+        <mat-error *ngIf="f.inputVerificationCode.errors?.pattern"
+          >Verification code must contains number only</mat-error
+        >
+        <mat-error
+          *ngIf="f.inputVerificationCode.errors?.invalidVerificationCode"
+          >Invalid code</mat-error
+        >
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="verifyMobileNo()">Verify</button>
+</div>
+<div *ngIf="isLoading$ | async">
+  <mat-spinner class="mat-spinner"></mat-spinner>
+</div>

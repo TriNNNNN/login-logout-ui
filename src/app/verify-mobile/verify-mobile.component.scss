@@ -1,0 +1,13 @@
+.row {
+  display: flex;
+
+  .mat-form-field {
+    width: 100%;
+  }
+}
+
+.mat-spinner {
+  position: relative;
+  margin-left: 50%;
+  margin-right: 50%;
+}

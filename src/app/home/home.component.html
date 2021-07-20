@@ -1,0 +1,43 @@
+<mat-toolbar>
+  <mat-list-item>
+    <button mat-menu-item>Home</button>
+  </mat-list-item>
+  <span class="example-spacer"></span>
+  <mat-list-item>
+    <button mat-menu-item [matMenuTriggerFor]="adminmenu">
+      Welcome {{ currentUser?.data?.name }}
+    </button>
+  </mat-list-item>
+  <mat-menu #adminmenu="matMenu" [overlapTrigger]="false">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>save_alt</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+
+<div id="container">
+  <div class="box">
+    <table style="width: 100%">
+      <tr>
+        <th colspan="2">User Logged in Information</th>
+      </tr>
+      <tr>
+        <th>Name:</th>
+        <td>{{ currentUser?.data?.name }}</td>
+      </tr>
+      <tr>
+        <th>Email:</th>
+        <td>{{ currentUser?.data?.email }}</td>
+      </tr>
+      <tr>
+        <th>Mobile No:</th>
+        <td>{{ currentUser?.data?.mobileNo }}</td>
+      </tr>
+      <tr>
+        <th>Logged on date:</th>
+        <td>{{ currentUser?.data?.loginOnDate }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

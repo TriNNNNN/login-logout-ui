@@ -1,0 +1,159 @@
+<div class="signup-form-flex">
+  <mat-card class="mat-elevation-z0 outline">
+    <mat-card-header>
+      <mat-card-title><strong>Sign Up</strong></mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="registerForm" (ngSubmit)="signUp()">
+        <mat-form-field>
+          <input
+            required
+            matInput
+            formControlName="inputName"
+            autocomplete="off"
+            placeholder="Name"
+          />
+          <mat-error *ngIf="f.inputName.errors?.required"
+            >Name is required</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            required
+            matInput
+            formControlName="inputEmail"
+            autocomplete="off"
+            placeholder="Email"
+          />
+          <mat-error *ngIf="f.inputEmail.errors?.required"
+            >Email is required</mat-error
+          >
+          <mat-error *ngIf="f.inputEmail.errors?.email"
+            >Please enter a valid email address</mat-error
+          >
+          <mat-error *ngIf="f.inputEmail.errors?.alreadyExists"
+            >Email Id already exists</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            required
+            matInput
+            formControlName="inputPassword"
+            autocomplete="off"
+            type="password"
+            placeholder="Password"
+          />
+          <mat-error *ngIf="f.inputPassword.errors?.required"
+            >Password is required</mat-error
+          >
+          <mat-error *ngIf="f.inputPassword.errors?.minlength"
+            >Password must be atleast 6 characters</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            required
+            matInput
+            formControlName="inputConfirmPassword"
+            autocomplete="off"
+            type="password"
+            placeholder="Confirm Password"
+          />
+          <mat-error *ngIf="f.inputConfirmPassword.errors?.required"
+            >Confirm Password is required</mat-error
+          >
+          <mat-error *ngIf="f.inputConfirmPassword.errors?.notEquivalent"
+            >Password do not match</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field class="country-code">
+          <input
+            required
+            matInput
+            formControlName="inputCountryCode"
+            autocomplete="off"
+            placeholder="Country Code"
+          />
+          <mat-error *ngIf="f.inputCountryCode.errors?.required"
+            >Country Code is required</mat-error
+          >
+          <mat-error *ngIf="f.inputCountryCode.errors?.pattern"
+            >Country code must be number only and prefix with +. e.g:
+            +91</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field class="mobile-no">
+          <input
+            required
+            matInput
+            maxlength="10"
+            formControlName="inputMobileNo"
+            autocomplete="off"
+            placeholder="Mobile No."
+          />
+          <mat-error *ngIf="f.inputMobileNo.errors?.required"
+            >Mobile No. is required</mat-error
+          >
+          <mat-error *ngIf="f.inputMobileNo.errors?.pattern"
+            >Mobile no. must contains number only</mat-error
+          >
+          <mat-error *ngIf="f.inputMobileNo.errors?.alreadyExists"
+            >Mobile number already exists</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            [min]="minDate"
+            [max]="maxDate"
+            [matDatepicker]="picker"
+            placeholder="Choose a date"
+            formControlName="inputDob"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="f.inputDob.errors?.required"
+            >Date of birth is required</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            required
+            matInput
+            formControlName="inputReferalCode"
+            autocomplete="off"
+            placeholder="Referal Code"
+          />
+          <mat-error *ngIf="f.inputReferalCode.errors?.required"
+            >Referal code is required</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            required
+            matInput
+            formControlName="inputAffiliateCode"
+            autocomplete="off"
+            placeholder="Affiliate Code"
+          />
+          <mat-error *ngIf="f.inputAffiliateCode.errors?.required"
+            >Affiliate code is required</mat-error
+          >
+        </mat-form-field>
+        <mat-card-actions>
+          <div class="button-flex-container">
+            <button mat-raised-button color="primary">SIGN UP</button>
+          </div>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div *ngIf="isLoading$ | async">
+  <mat-spinner class="mat-spinner"></mat-spinner>
+</div>

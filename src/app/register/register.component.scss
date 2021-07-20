@@ -1,0 +1,73 @@
+.signup-form-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+
+  mat-card {
+    padding: 15px;
+    flex: 0 0 25%;
+    border-radius: 15px 50px;
+
+    mat-card-header,
+    mat-card-title {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      margin-bottom: 10px;
+
+      strong {
+        background: linear-gradient(to right, #205e9b, #0575e6);
+        color: transparent;
+        background-clip: text;
+      }
+
+      ::ng-deep {
+        .mat-card-header-text {
+          margin: 0px;
+        }
+      }
+    }
+    mat-form-field {
+      margin: 3px;
+      width: 100%;
+    }
+  }
+}
+
+.button-flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  button {
+    width: 70%;
+    border-radius: 20px;
+    background: linear-gradient(to left, #021b79, #205e9b);
+  }
+  a {
+    text-decoration: none;
+  }
+  span {
+    margin: 3px;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.outline {
+  border-style: solid;
+  border-width: medium;
+  border-color: linear-gradient(to right, #205e9b, #0575e6);
+}
+
+.mat-spinner {
+  position: relative;
+  margin-left: 50%;
+  margin-right: 50%;
+}
